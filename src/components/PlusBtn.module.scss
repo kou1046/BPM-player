@@ -1,0 +1,28 @@
+.plusBtn {
+    display: inline-block;
+    position: relative;
+    width: 1em;
+    height: 1em;
+    color: black;
+    font-size: 30px;
+}
+.plusBtn::before,
+.plusBtn::after {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0.2em;
+    height: 0.2em;
+    background-color: currentColor;
+    content: "";
+}
+.plusBtn::before {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+.plusBtn::after {
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+}

@@ -1,0 +1,52 @@
+.BpmHistoryView {
+    text-align: center;
+    margin: auto;
+    padding-left: 0px;
+    border: 5px dotted skyblue;
+    margin-top: 40px;
+    height: 85px;
+    overflow: auto;
+    > li {
+        display: inline-block;
+        margin: 20px 10px;
+        list-style-type: disc;
+        background-color: lightgray;
+        border-radius: 20px;
+        padding: 5px 10px;
+        > span {
+            font-size: 130%;
+        }
+    }
+}
+
+.optionArea {
+    margin-top: 20px;
+    font-size: 120%;
+    > input{
+        transform:scale(1.4);
+        margin : 0 20px;
+    }
+}
+
+.measurementBpmArea {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.viewResultTrack {
+    text-align: center;
+    border: solid 2px ;
+    margin-top: 50px;
+}
+
+.viewResultTrack{
+     h1 {
+        border-bottom: 2px solid;
+    }
+}
+
+.contentACtion{
+    text-align: right;
+    display: inline;
+}
+
