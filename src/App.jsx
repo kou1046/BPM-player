@@ -12,7 +12,7 @@ export const App = () => {
     const [selectArtists,setSelectArtists] = useState([]);
     const [tracks,setTracks] = useState([]);
 
-    console.log('app render');
+    console.log(process.env.PUBLIC_URL);
     
     useEffect(() => {
         const hash = window.location.hash;
@@ -101,7 +101,7 @@ export const App = () => {
     }
    
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <Routes>
                 <Route index element={<Home token={token} setToken={setToken}></Home>} />
                 <Route path='/select' element={<SearchArtist token={token} artistState={[selectArtists,setSelectArtists]} trackState={[tracks,setTracks]} setTrackFunc={setTracksFromArtists}></SearchArtist>} />
