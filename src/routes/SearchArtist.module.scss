@@ -7,11 +7,6 @@
     padding: 20px;
     margin: 0 10px;
     width:120px;
-    > button {
-        border-radius: 50%;
-        font-size: 120%;
-        -webkit-appearance: none;
-    }
     > p {
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -25,7 +20,7 @@
 
 .selectedViewArea {
     border: 3px dotted black;
-    margin : 50px 0;
+    margin : 50px 10px;
     padding: 10px;
 }
 .selectArea {
@@ -37,17 +32,18 @@
     
 }
 
-.searchResult {
-    height : 700px;
-    overflow : auto;
-}
-
 .searchArea{
-    margin-top: 10px 0;
+    margin: auto 10px;
     border: 2px solid black;
 }
 .inputKey {
     text-align: center;
+    margin-top: 2em;
+    > input[type=text] {
+        font-size: 16px;
+        margin-right: 1em;
+    }
+
 }
 
 .registerArea {

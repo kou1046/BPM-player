@@ -107,8 +107,11 @@ export const App = () => {
                 <Route path='/select' element={<SearchArtist token={token} artistState={[selectArtists,setSelectArtists]} trackState={[tracks,setTracks]} setTrackFunc={setTracksFromArtists}></SearchArtist>} />
                 <Route path='/player' element={<BpmMeasurement token={token} artists={selectArtists} tracks={tracks}></BpmMeasurement>} />
             </Routes>
-            <footer>
-                {!token ? <LoginBtn></LoginBtn> : <Link to='/'><LogoutBtn setToken={setToken}></LogoutBtn></Link>}
+            <footer style={{marginTop:200}}>
+                <p>
+                    {!token ? null : <p style={{textAlign:'center'}}>ログイン済み</p>}
+                    {!token ? <LoginBtn></LoginBtn> : <Link to='/'><LogoutBtn setToken={setToken}></LogoutBtn></Link>}
+                </p>
             </footer>
         </BrowserRouter>
     );

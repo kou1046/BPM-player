@@ -5,24 +5,27 @@ import { LoginBtn } from "../components/LoginBtn";
 import ArtistImg from '../images/Artist.png'
 import PlayListImg from '../images/PlayList.png'
 import style from './Home.module.scss'
+import Button from "@mui/material/Button";
 
 export const Home = ({token,setToken}) => {
 
     console.log('home render');
 
+    const buttonStyle = {width:200,
+        height:200,
+        fontSize:20,
+        margin:'1em',
+        border: 2
+        
+    }
+
     return (
         <>
             <div className={style.selectClass}>
                 <Link to='select'>
-                    <div className={style.classType} >
-                        <img width='300' height='280' src={ArtistImg} alt="Artists" />
-                        <p>Artists</p>
-                    </div>
+                    <Button variant='outlined' sx={buttonStyle}>Artists</Button>
                 </Link>
-                <div className={style.classType}>
-                    <img width='300' height='280' src={PlayListImg} alt="Playlists" />
-                    <p>Playlists</p>
-                </div>
+                <Button variant='outlined' color='secondary' sx={buttonStyle} >Playlists</Button>
             </div>
         </>
     )

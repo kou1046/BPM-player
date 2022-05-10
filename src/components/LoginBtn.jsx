@@ -7,7 +7,7 @@ export const LoginBtn = () => {
 
     return (
         <>
-            <button className={style.login} onClick={login}>Login</button>
+            <button className={style.login} onClick={login}>Login with Spotify</button>
         </>
     )
 }

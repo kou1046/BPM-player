@@ -5,6 +5,8 @@ import style from './SearchArtist.module.scss'
 import { ContentsList } from '../components/ContentsList';
 import { PlusBtn } from "../components/PlusBtn";
 import { ModalWindow } from "../components/ModalWindow";
+import Button from "@mui/material/Button";
+import Box from '@mui/material';
 
 export const SearchArtist = ({token,artistState,trackState,setTrackFunc}) => {
     const [searchResult,setSearchResult] = useState([]);
@@ -53,7 +55,7 @@ export const SearchArtist = ({token,artistState,trackState,setTrackFunc}) => {
                                     </ModalWindow> : null}
                         <img onClick={() => setModalIs(!modalIs)} width='100' height='100' src={value.images[2].url}></img>
                         <p title={value.name}>{value.name}</p>
-                        <button onClick={() => setSelectArtists(selectArtists.filter(el => el != value))}>×</button>
+                        <Button color="error" variant='contained' onClick={() => setSelectArtists(selectArtists.filter(el => el != value))}>×</Button>
                     </div>
                 )) : 
                 null
@@ -64,7 +66,7 @@ export const SearchArtist = ({token,artistState,trackState,setTrackFunc}) => {
         <div className={style.searchArea}>
             <div className={style.inputKey}>
                 <input ref={searchKey} placeholder='Search by Artist Name' type="text" />
-                <button onClick={getResult}>検索</button>
+                <Button onClick={getResult} variant='contained'>検索</Button>
             </div>
             <h1 style={{textAlign:'center'}}>Result</h1>
             <ol className={style.searchResult}>
@@ -80,7 +82,7 @@ export const SearchArtist = ({token,artistState,trackState,setTrackFunc}) => {
         </div>
         <div className={style.registerArea}>
             <Link to={selectArtists.length ? '/player' : ''}>
-                <button onClick={execution}>次へ</button>
+                <Button variant='contained' sx={{borderRadius:3}} onClick={execution}>次へ</Button>
             </Link>
         </div>
     </>
