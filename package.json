@@ -27,7 +27,7 @@
     "server": "http-server -o",
     "rm": "rd /s /q  docs",
     "mv": "ren build docs",
-    "git": "git add . && git commit && git push origin master",
+    "git": "git add . && git commit && git push origin main",
     "deploy": "npm run rm && npm run build && npm run mv && npm run git"
   },
   "eslintConfig": {
