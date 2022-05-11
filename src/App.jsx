@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { BpmMeasurement } from './routes/BpmMeasurement';
 import { SearchArtist } from './routes/SearchArtist';
+import { SearchPlayLists } from './routes/SearchPlayLists';
 import { BrowserRouter, Link, Route ,Routes} from 'react-router-dom';
 import { Home } from './routes/Home';
 import axios from 'axios';
@@ -12,8 +13,6 @@ export const App = () => {
     const [selectArtists,setSelectArtists] = useState([]);
     const [tracks,setTracks] = useState([]);
 
-    console.log(process.env.PUBLIC_URL);
-    
     useEffect(() => {
         const hash = window.location.hash;
         let token = window.localStorage.getItem('token');
@@ -28,7 +27,7 @@ export const App = () => {
             setSelectArtists(myArtists); //曲の情報は大きすぎるのでローカルストレージには保存せず、更新毎にapiで取得する
             setTracksFromArtists(token,myArtists);
         }
-        setToken(token)
+        setToken(token);
     },[]) 
 
     const splitArray = (array,splitNum) => {
@@ -104,7 +103,8 @@ export const App = () => {
         <BrowserRouter basename={process.env.PUBLIC_URL}>
             <Routes>
                 <Route index element={<Home token={token} setToken={setToken}></Home>} />
-                <Route path='/select' element={<SearchArtist token={token} artistState={[selectArtists,setSelectArtists]} trackState={[tracks,setTracks]} setTrackFunc={setTracksFromArtists}></SearchArtist>} />
+                <Route path='/select-artists' element={<SearchArtist token={token} artistState={[selectArtists,setSelectArtists]} trackState={[tracks,setTracks]} setTrackFunc={setTracksFromArtists}></SearchArtist>} />
+                <Route path='select-playlists' element={<SearchPlayLists token={token}/>}></Route>
                 <Route path='/player' element={<BpmMeasurement token={token} artists={selectArtists} tracks={tracks}></BpmMeasurement>} />
             </Routes>
             <footer style={{marginTop:200}}>

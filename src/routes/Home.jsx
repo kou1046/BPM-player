@@ -22,10 +22,12 @@ export const Home = ({token,setToken}) => {
     return (
         <>
             <div className={style.selectClass}>
-                <Link to='select'>
+                <Link to='select-artists'>
                     <Button variant='outlined' sx={buttonStyle}>Artists</Button>
                 </Link>
-                <Button variant='outlined' color='secondary' sx={buttonStyle} >Playlists</Button>
+                <Link to='select-playlists'>
+                    <Button variant='outlined' color='secondary' sx={buttonStyle} >Playlists</Button>
+                </Link>
             </div>
         </>
     )
