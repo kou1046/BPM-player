@@ -46,8 +46,9 @@ export const BpmMeasurement = ({token,artists,tracks}) => {
             },
         }
         const isPlayingRes = await axios.get(process.env.REACT_APP_BASE_URI + 'me/player/currently-playing',query);
+        alert(navigator.userAgent);
         if (isPlayingRes.status === 204){
-            if (navigator.userAgent.match('/iPhone|iPad|Android.+Mobile/')) {
+            if (navigator.userAgent.match('iPhone|iPad|Android.+Mobile')) {
                 window.location = (`https://open.spotify.com/track/${track.id}`);
             }else{
                 alert('pcでは事前にspotifyを起動してください');
