@@ -12,8 +12,6 @@ export const App = () => {
     const [selectArtists,setSelectArtists] = useState([]);
     const [tracks,setTracks] = useState([]);
 
-    console.log(process.env.PUBLIC_URL);
-    
     useEffect(() => {
         const hash = window.location.hash;
         let token = window.localStorage.getItem('token');
