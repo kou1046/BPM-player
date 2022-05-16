@@ -1,11 +1,16 @@
-import {useEffect, useState , useCallback} from "react"
+import {useEffect, useState , useCallback , forwardRef, useImperativeHandle} from "react"
 import classes from './CheckBpmBtn.module.scss';
 import { Button } from "@mui/material";
 import { style } from "@mui/system";
 
-export const CheckBpmBtn = ({bpmArray,setBpmArray,disabled,autoReset=false}) => {
+export const CheckBpmBtn = forwardRef(({bpmArray,setBpmArray,disabled,autoReset=false},ref) => {
     const [startTime,setStart] = useState(0)
     const [pushCnt,setPushCnt] = useState(0)
+
+    useImperativeHandle(ref,() => ({
+        push : measureBpm
+    }));
+    
     const resetBpm = useCallback(() => {
         setBpmArray([])
         setPushCnt(0) 
@@ -30,6 +35,7 @@ export const CheckBpmBtn = ({bpmArray,setBpmArray,disabled,autoReset=false}) => 
        setBpmArray([...bpmArray,answer])
        setPushCnt((prev) => prev+1)
     }
+
     
     return (
         <>
@@ -45,4 +51,4 @@ export const CheckBpmBtn = ({bpmArray,setBpmArray,disabled,autoReset=false}) => 
             <p><Button className={classes.button} variant="contained" color='error' onClick={resetBpm} >RESET</Button></p>
         </>
     )
-}
+})
