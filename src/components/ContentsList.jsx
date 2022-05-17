@@ -6,7 +6,7 @@ export const ContentsList = ({contents,destination,actionFunc,actionElements}) =
             {
             contents.map((value,index) => (
                 <li className={style.contentArea} key={'content-' + String(index)}>
-                    <img width='100' height='100' src={value.images[2].url}></img>
+                    <img width='100' height='100' src={value.images.length ? value.images[0].url : ''}></img>
                     <div className={style.destination}>
                         <span>
                             <h2>{value.name}</h2>

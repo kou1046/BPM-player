@@ -11,6 +11,7 @@ import { LogoutBtn } from './components/LogoutBtn';
 export const App = () => {
     const [token,setToken] = useState('');
     const [selectArtists,setSelectArtists] = useState([]);
+    const [selectPlaylists,setSelectPlaylists] = useState([]);
     const [tracks,setTracks] = useState([]);
 
     useEffect(() => {
@@ -104,14 +105,12 @@ export const App = () => {
             <Routes>
                 <Route index element={<Home token={token} setToken={setToken}></Home>} />
                 <Route path='/select-artists' element={<SearchArtist token={token} artistState={[selectArtists,setSelectArtists]} trackState={[tracks,setTracks]} setTrackFunc={setTracksFromArtists}></SearchArtist>} />
-                <Route path='select-playlists' element={<SearchPlayLists token={token}/>}></Route>
+                <Route path='select-playlists' element={<SearchPlayLists token={token} playListsState={[selectPlaylists,setSelectPlaylists]} trackState={[tracks,setTracks]} />}></Route>
                 <Route path='/player' element={<BpmMeasurement token={token} artists={selectArtists} tracks={tracks}></BpmMeasurement>} />
             </Routes>
             <footer style={{marginTop:200}}>
-                <p>
-                    {!token ? null : <p style={{textAlign:'center'}}>ログイン済み</p>}
+                    {!token ? null : <p>ログイン済み</p>}
                     {!token ? <LoginBtn></LoginBtn> : <Link to='/'><LogoutBtn setToken={setToken}></LogoutBtn></Link>}
-                </p>
             </footer>
         </BrowserRouter>
     );
