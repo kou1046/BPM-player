@@ -222,7 +222,7 @@ export const BpmMeasurement = ({token,artists,tracks}) => {
                 {bpmTrack.length ?
                     <>
                         <h1>Result : BPM {resultBpm}</h1>
-                        <h3>{`BPM ${resultBpm - 10}~${resultBpm + 10}の曲一覧`}</h3>
+                        <h3>{`BPM ${resultBpm - BPM_INTERVAL}~${resultBpm + BPM_INTERVAL}の曲一覧`}</h3>
                         <div onClick={() => { play(bpmTrack[0]) }}>
                             <PlayBtn></PlayBtn>
                         </div>
