@@ -1,7 +1,7 @@
 {
   "name": "training",
   "version": "0.1.0",
-  "homepage": "https://kou1046.github.io/BPM-player",
+  "homepage": "./",
   "private": true,
   "dependencies": {
     "@elsdoerfer/react-arrow": "^1.0.4",
